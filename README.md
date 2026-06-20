@@ -1,14 +1,12 @@
 # keep-growing
 
-> 作者：julie0621 · 仓库：[github.com/julie0621/keep-growing](https://github.com/julie0621/keep-growing)
-
 陪你聊聊情绪，弄明白自己怎么了。心情好可以记一笔，心情不好有人陪着梳理。
 
 ## 安装
 
 1. 下载 `emotion-mirror.md`
 2. 放到 `~/.claude/skills/` 目录下（Windows: `C:\Users\你的用户名\.claude\skills\`）
-3. 重启 Claude Code，输入 `/emotion` 或者直接发 `心情不好`、`今天心情不错` 都可以
+3. 重启 Claude Code，输入 `/emotion` 或者直接说 `心情不好`、`今天心情不错` 就行
 
 ## 使用
 
