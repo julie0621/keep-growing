@@ -1,5 +1,7 @@
 # keep-growing
 
+> 作者：julie0621 · 仓库：[github.com/julie0621/keep-growing](https://github.com/julie0621/keep-growing)
+
 陪你聊聊情绪，弄明白自己怎么了。心情好可以记一笔，心情不好有人陪着梳理。
 
 ## 安装
