@@ -6,8 +6,7 @@
 
 1. 下载 `emotion-mirror.md`
 2. 放到 `~/.claude/skills/` 目录下（Windows: `C:\Users\你的用户名\.claude\skills\`）
-3. 重启 Claude Code 或输入 `/emotion`
-
+3. 重启 Claude Code 输入 `/emotion` 或者直接发 `心情不好`、`今天心情不错` 都可以
 ## 使用
 
 - `/emotion` — 打开情绪镜子（急救 or 复盘）
