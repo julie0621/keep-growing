@@ -1,0 +1,29 @@
+{
+  "name": "angry-migrator",
+  "version": "1.0.0",
+  "description": "SaaS 工具健康度体检——监控评分趋势、定价变动与条款暗坑，寻找替代方案。看准数据再决定，不冲动也不拖延。",
+  "author": {
+    "name": "julie0621",
+    "url": "https://github.com/julie0621"
+  },
+  "homepage": "https://github.com/julie0621/keep-growing",
+  "repository": "https://github.com/julie0621/keep-growing",
+  "license": "MIT",
+  "keywords": ["SaaS", "tool-review", "alternatives", "monitoring", "pricing", "中文"],
+  "category": "productivity",
+  "skills": [
+    {
+      "name": "angry-migrator",
+      "path": "skills/angry-migrator/SKILL.md",
+      "description": "查评分、翻条款、找替代——帮你把数据看清楚再做决定。支持多渠道推送（ntfy/Bark/Telegram/邮件等）。"
+    }
+  ],
+  "triggers": {
+    "slash": ["/angry"],
+    "natural": [
+      "帮我查一下这个工具", "有什么替代", "替代方案", "加入监控",
+      "我的监控列表", "工具体检", "这个工具最近评价",
+      "这个工具口碑怎么样", "批量体检"
+    ]
+  }
+}
