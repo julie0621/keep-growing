@@ -1,1 +1,1 @@
-{"channel":"ntfy","topic":"angry_alerts"}
+{"channel":"ntfy","topic":"angry_alerts","_note":"渠道可选 ntfy / bark / telegram / serverchan / discord，见 monitor.yml"}
