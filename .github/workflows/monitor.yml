@@ -1,3 +1,6 @@
+# Angry Migrator 定时体检
+# 根据 push-config.json 中的渠道配置，定时推送工具体检提醒
+# 渠道支持：ntfy / Telegram / Bark / Server酱 / Discord
 name: Angry Migrator — 定时体检
 
 on:
