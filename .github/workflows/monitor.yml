@@ -1,0 +1,96 @@
+name: Angry Migrator — 定时体检
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 读取推送配置
+        id: config
+        run: |
+          if [ -f push-config.json ]; then
+            CHANNEL=$(python3 -c "import json; print(json.load(open('push-config.json')).get('channel',''))")
+            echo "channel=$CHANNEL" >> $GITHUB_OUTPUT
+          else
+            echo "channel=none" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 检查哪些工具该体检了
+        run: |
+          COUNT=0
+          if [ -f "angry-migrator-death-watch.md" ]; then
+            # 统计工具数量作为"待体检"信号
+            TOOLS=$(grep '^\*\|' angry-migrator-death-watch.md 2>/dev/null | awk -F'|' '{print $2}' | tr -d ' ' | grep -v '^-' | grep -v '^$' | grep -v '工具' | wc -l)
+            COUNT=$TOOLS
+          fi
+          echo "count=$COUNT" >> $GITHUB_STATE
+
+      - name: 推送 — ntfy
+        if: steps.config.outputs.channel == 'ntfy'
+        run: |
+          python3 -c "
+          import json
+          c = json.load(open('push-config.json'))
+          import subprocess, urllib.parse
+          topic = c.get('topic','angry_alerts')
+          # 简单计数推送
+          subprocess.run(['curl','-s','-X','POST',f'https://ntfy.sh/{topic}',
+            '-H','Title: Angry Migrator check',
+            '-H','Priority: default','-H','Tags: robot',
+            '-d','部分工具已有一段时间未体检。说「批量体检」快速扫一圈。'])
+          "
+
+      - name: 推送 — Telegram
+        if: steps.config.outputs.channel == 'telegram'
+        run: |
+          python3 -c "
+          import json, subprocess
+          c = json.load(open('push-config.json'))
+          token = c.get('token','')
+          chat_id = c.get('chat_id','')
+          msg = '部分工具已有一段时间未体检。打开 Claude Code 说「批量体检」快速扫一圈。'
+          subprocess.run(['curl','-s','-X','POST',f'https://api.telegram.org/bot{token}/sendMessage',
+            '-H','Content-Type: application/json',
+            '-d',json.dumps({'chat_id':chat_id,'text':msg})])
+          "
+
+      - name: 推送 — Bark
+        if: steps.config.outputs.channel == 'bark'
+        run: |
+          python3 -c "
+          import json, subprocess
+          c = json.load(open('push-config.json'))
+          url = c.get('device_url','')
+          subprocess.run(['curl','-s','-X','POST',f'{url}/工具体检提醒/部分工具已有一段时间未体检。说「批量体检」快速扫一圈。'])
+          "
+
+      - name: 推送 — Server酱
+        if: steps.config.outputs.channel == 'serverchan'
+        run: |
+          python3 -c "
+          import json, subprocess
+          c = json.load(open('push-config.json'))
+          sckey = c.get('sckey','')
+          subprocess.run(['curl','-s','-X','POST',f'https://sctapi.ftqq.com/{sckey}.send',
+            '-d','title=工具体检提醒','-d','desp=部分工具已有一段时间未体检。说「批量体检」快速扫一圈。'])
+          "
+
+      - name: 推送 — Discord
+        if: steps.config.outputs.channel == 'discord'
+        run: |
+          python3 -c "
+          import json, subprocess
+          c = json.load(open('push-config.json'))
+          wh = c.get('webhook_url','')
+          subprocess.run(['curl','-s','-X','POST',wh,
+            '-H','Content-Type: application/json',
+            '-d','{\"content\":\"部分工具已有一段时间未体检。说「批量体检」快速扫一圈。\"}'])
+          "
