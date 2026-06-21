@@ -1,0 +1,34 @@
+{
+  "name": "Keep Growing — 陪你聊聊，也帮你看看手里的工具",
+  "description": "陪你聊聊情绪，弄明白自己怎么了——心情好可以记一笔，心情不好有人陪着梳理。也帮你看一眼手里的 SaaS 工具：评分是不是在跌、定价条款藏了什么坑、有没有更合适的选择。",
+  "owner": {
+    "name": "julie0621",
+    "url": "https://github.com/julie0621"
+  },
+  "plugins": [
+    {
+      "name": "emotion-mirror",
+      "description": "陪你聊聊情绪，弄明白自己怎么了。心情好记一笔，心情不好有人陪着梳理。不诊断、不替你做决定。",
+      "version": "2.0.0",
+      "category": "wellness",
+      "keywords": ["情绪", "mental-health", "self-reflection", "coaching"],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/julie0621/keep-growing",
+        "path": "plugins/emotion-mirror"
+      }
+    },
+    {
+      "name": "angry-migrator",
+      "description": "SaaS 工具健康度体检——监控评分趋势、定价变动与条款暗坑，寻找替代方案。看准数据再决定。",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": ["SaaS", "tool-review", "alternatives", "monitoring", "pricing"],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/julie0621/keep-growing",
+        "path": "plugins/angry-migrator"
+      }
+    }
+  ]
+}
