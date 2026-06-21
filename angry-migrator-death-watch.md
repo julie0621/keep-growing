@@ -4,9 +4,9 @@
 > 持续更新，帮助判断哪些 SaaS 工具需要留意或更换
 > 最后更新：2026-06-21
 
-## 🔴 高危（评分/用户情绪明显下滑）
+## 🔴 重点关注（评分/用户情绪明显下滑）
 
-| 工具 | 品类 | 危险信号 | 替代品 |
+| 工具 | 品类 | 关注信号 | 替代品 |
 |------|------|---------|--------|
 | Zoom | 视频会议 | 流量下滑 ~65%，被 Teams/Meet 捆绑替代 | Google Meet, Microsoft Teams, Around |
 | Asana | 项目管理 | 流量下滑 ~26%，被 Notion/ClickUp/Linear 挤压 | Notion, ClickUp, Linear |
@@ -24,7 +24,7 @@
 | Slack | 沟通 | Teams 捆绑侵蚀 + 价格上涨 | Discord, Teams, Twist |
 | Dropbox | 存储 | 被 Google Drive/iCloud 捆绑替代 | Google Drive, pCloud |
 
-## 已死亡/被收购
+## 已停运/被收购
 
 | 工具 | 状态 | 替代品 |
 |------|------|--------|
