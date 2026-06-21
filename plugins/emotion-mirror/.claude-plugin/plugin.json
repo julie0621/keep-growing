@@ -1,0 +1,30 @@
+{
+  "name": "emotion-mirror",
+  "version": "2.0.0",
+  "description": "陪你聊聊情绪，弄明白自己怎么了。心情好可以记一笔，心情不好有人陪着梳理。不诊断、不替你做决定。",
+  "author": {
+    "name": "julie0621",
+    "url": "https://github.com/julie0621"
+  },
+  "homepage": "https://github.com/julie0621/keep-growing",
+  "repository": "https://github.com/julie0621/keep-growing",
+  "license": "MIT",
+  "keywords": ["情绪", "mental-health", "self-reflection", "mindfulness", "coaching", "中文"],
+  "category": "wellness",
+  "skills": [
+    {
+      "name": "emotion-mirror",
+      "path": "skills/emotion-mirror/SKILL.md",
+      "description": "陪你聊聊，弄明白自己怎么了。心情好记一笔，心情不好有人陪着梳理。支持 /emotion 和自然语言触发。"
+    }
+  ],
+  "triggers": {
+    "slash": ["/emotion"],
+    "natural": [
+      "心情不好", "心情不错", "好烦", "好难受", "好焦虑", "郁闷", "烦躁",
+      "不开心", "情绪不好", "状态不好", "心情很差", "难过", "生气", "压力好大",
+      "帮我做情绪复盘", "做情绪复盘", "我想复盘", "梳理一下情绪",
+      "帮我梳理情绪", "做一次情绪梳理", "今天挺开心", "想记一下", "情绪快照"
+    ]
+  }
+}
